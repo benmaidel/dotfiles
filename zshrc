@@ -1,11 +1,16 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status ssh vcs root_indicator)
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
+DEFAULT_USER=$USER
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="pygmalion"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -92,6 +97,10 @@ alias r31='ssh -X bnm@raw3-3-pc1'
 alias r32='ssh -X bnm@raw3-3-pc2'
 alias r33='ssh -X bnm@raw3-3-pc3'
 alias qtc='source /opt/qt57/bin/qt57-env.sh && qtcreator'
+alias paul-ingolstadt='export ROS_MASTER_URI=http://10.4.2.11:11311 && export ROS_IP=10.0.3.26 && export ROBOT=cob4-2'
+alias paul-stuttgart='export ROS_MASTER_URI=http://10.4.7.11:11311 && export ROBOT=cob4-7 && export ROBOT_ENV=ipa-apartment'
+alias wbh='export ROS_MASTER_URI=http://192.168.1.130:11311 && export ROS_IP=192.168.1.108'
+alias lc='colorls'
 
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     alias cob_ws='source ~/dev/indigo/cob_ws/devel/setup.zsh'
@@ -112,6 +121,7 @@ else
     alias afkar_ws='source ~/dev/kinetic/afkar_ws/devel/setup.zsh'
     alias android_ws='source ~/dev/kinetic/cob-android_ws/devel/setup.zsh'
     alias msh_ws='source ~/dev/kinetic/msh_ws/devel/setup.zsh'
+    alias kamag_ws='source ~/dev/kinetic/kamag_ws/devel/setup.zsh'
     alias eclipse='~/Apps/eclipse/eclipse'
     alias sts-bundle='~/Apps/sts-bundle/sts-3.7.3.RELEASE/STS'
     alias vscode='~/Apps/VSCode-linux-x64/code'
@@ -132,8 +142,9 @@ else
 
     #export ROS_IP=10.4.2.100
 
-    #fix for terminix
-    . /etc/profile.d/vte.sh
+    if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+            source /etc/profile.d/vte.sh
+    fi
 
     #for x-server chroot system
     #xhost +local:
@@ -144,8 +155,9 @@ fi
 
 #export ROBOT=raw3-3
 #export ROBOT=cob4-2
-export ROBOT=cob4-2
-#export ROBOT=bmw_i3
+#export ROBOT=cob4-7
+export ROBOT=bmw_i3
+#export ROBOT=WBH25_EUROMOT
 
 #export ROBOT_ENV=ipa-apartment
 #export ROBOT_ENV=saturn-ingolstadt
@@ -155,17 +167,18 @@ export ROBOT_ENV=empty
 #export ROS_MASTER_URI=http://localhost:11311
 #export ROS_MASTER_URI=http://10.4.8.11:11311
 #export ROS_MASTER_URI=http://10.42.0.1:11311
-#export ROS_MASTER_URI=http://i3-pc1:11311
+#export ROS_MASTER_URI=http://10.10.10.10:11311
 #export ROS_MASTER_URI=http://10.0.0.10:11311
 #export ROS_MASTER_URI=http://raw3-1-pc1:11311
 #export ROS_MASTER_URI=http://essence:11311
-#export ROS_IP=10.4.8.102
+#export ROS_IP=10.10.10.123
+#export ROS_MASTER_URI=http://192.168.1.130:11311
 
 export ROSCONSOLE_CONFIG_FILE=~/.rosconsole
 
-if [[ -r /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh ]]; then
-    source /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
-fi
+#if [[ -r /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+#    source /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
+#fi
 
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     msh_ws
