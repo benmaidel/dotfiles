@@ -99,6 +99,9 @@ alias r33='ssh -X bnm@raw3-3-pc3'
 alias qtc='source /opt/qt57/bin/qt57-env.sh && qtcreator'
 alias paul-ingolstadt='export ROS_MASTER_URI=http://10.4.2.11:11311 && export ROS_IP=10.0.3.26 && export ROBOT=cob4-2'
 alias paul-stuttgart='export ROS_MASTER_URI=http://10.4.7.11:11311 && export ROBOT=cob4-7 && export ROBOT_ENV=ipa-apartment'
+alias paul-zuerich='msh_ws && export ROS_MASTER_URI=http://10.4.12.11:11311 && export ROBOT=cob4-12 && export ROBOT_ENV=mm-zuerich'
+alias paul-berlin='msh_ws && export ROS_MASTER_URI=http://10.4.14.11:11311 && export ROBOT=cob4-14 && export ROBOT_ENV=saturn-berlin'
+alias paul-hamburg='msh_ws && export ROS_MASTER_URI=http://10.4.15.11:11311 && export ROBOT=cob4-15 && export ROBOT_ENV=saturn-hamburg'
 alias wbh='export ROS_MASTER_URI=http://192.168.1.130:11311 && export ROS_IP=192.168.1.108'
 alias lc='colorls'
 
@@ -125,6 +128,7 @@ else
     alias eclipse='~/Apps/eclipse/eclipse'
     alias sts-bundle='~/Apps/sts-bundle/sts-3.7.3.RELEASE/STS'
     alias vscode='~/Apps/VSCode-linux-x64/code'
+    alias nav_ws='source ~/dev/kinetic/nav_ws/devel/setup.zsh'
     unsetopt no_match
 
     source /opt/ros/kinetic/setup.zsh
