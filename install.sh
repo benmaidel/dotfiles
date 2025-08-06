@@ -1,16 +1,10 @@
 #!/bin/bash
 
-
-cp ./.gitmessage ~
-
 # powerline fonts for zsh agnoster theme
 git clone https://github.com/powerline/fonts.git nerd-fonts
 cd nerd-fonts
 ./install.sh
 cd .. && rm -rf nerd-fonts
-
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
 
 # oh-my-zsh & plugins
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
@@ -26,3 +20,6 @@ mkdir -p $font_dir
 cp ./fonts/* $font_dir/
 
 cp ./.p10k.zsh ~
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --key-bindings --completion --update-rc
