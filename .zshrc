@@ -114,6 +114,5 @@ export ROS_DOMAIN_ID=1
 
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
-source /home/ben/.local/share/bash-completion/completions/gis
 
 setopt no_nomatch
