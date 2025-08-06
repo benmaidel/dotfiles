@@ -107,10 +107,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source ~/setup/amr/amr.bash
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export ROS_DOMAIN_ID=1
+
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+source /home/ben/.local/share/bash-completion/completions/gis
 
 setopt no_nomatch
