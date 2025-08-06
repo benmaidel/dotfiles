@@ -115,4 +115,7 @@ autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
 setopt no_nomatch
+
+source <(fzf --zsh)
+
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
