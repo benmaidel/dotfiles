@@ -23,3 +23,31 @@ cp ./.p10k.zsh ~
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --key-bindings --completion --update-rc
+
+#!/bin/bash
+
+# Upgrade python packages
+
+PIP_BREAK_SYSTEM_PACKAGES=1 pip install colcon-mixin pre-commit
+
+# Upgrade package sources.
+sudo apt update && sudo apt upgrade -y
+
+# Update ROS dependencies
+rosdep update
+
+# Deploy helper scripts to bashrc.
+
+echo "" >> /home/virtual/.zshrc
+echo "# Source ROS helper functions." >> /home/virtual/.zshrc
+echo "source ~/.scripts/helper_functions.sh" >> /home/virtual/.zshrc
+echo "source ~/.scripts/variables.sh" >> /home/virtual/.zshrc
+echo "source ~/.scripts/calls.sh" >> /home/virtual/.zshrc
+
+mkdir -p /commandhistory
+touch /commandhistory/.zsh_history
+chown -R virtual /commandhistory
+
+echo "autoload -Uz add-zsh-hook; append_history() { fc -W }; add-zsh-hook precmd append_history; export HISTFILE=/commandhistory/.zsh_history" >> /home/virtual/.zshrc
+
+echo "cd" >> /home/virtual/.zshrc
