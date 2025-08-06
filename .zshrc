@@ -108,7 +108,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export ROS_DOMAIN_ID=1
 
@@ -116,3 +115,4 @@ autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
 setopt no_nomatch
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
